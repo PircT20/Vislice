@@ -62,7 +62,7 @@ class Igra:
                     return NAPACNA_CRKA
 
 with open('besede.txt', encoding='utf-8') as f:
-    bazen_besed = [vrstica.strip().upper() for vrstica in f]     
+    bazen_besed = f.read().split()     
 
 import random
 
