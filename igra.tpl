@@ -13,7 +13,7 @@
 
     <p>Nepravilni ugibi: <b>{{igra.nepravilni_ugibi()}}</b></p>
 
-    <img src="/img/{{igra.stevilo.napak()}}.jpg" alt="obesanje">
+    <img src="/img/{{igra.stevilo_napak()}}.jpg" alt="obesanje">
 % if stanje == model.ZMAGA:
 
     <h1>ZMAGA</h1>

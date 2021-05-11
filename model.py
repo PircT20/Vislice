@@ -1,3 +1,5 @@
+import random
+
 STEVILO_DOVOLJENIH_NAPAK = 9
 
 PRAVILNA_CRKA, PONOVLJENA_CRKA, NAPACNA_CRKA = '+', 'o', '-'
@@ -5,7 +7,8 @@ ZMAGA, PORAZ = 'W', 'X'
 ZACETEK = 'Z'
 
 class Igra:
-    def __init__(self, geslo, crke = None):
+
+    def __init__(self, geslo, crke=None):
         self.geslo = geslo
         if crke is None:
             self.crke = []
@@ -13,10 +16,10 @@ class Igra:
             self.crke = crke
 
     def napacne_crke(self):
-        return [c for c in self.crke if c.upper() not in self.geslo.upper()]
+        return [crka for crka in self.crke if crka.upper() not in self.geslo.upper()]
 
     def pravilne_crke(self):
-        return [c for c in self.crke if c.upper() in self.geslo.upper()]
+        return [crka for crka in self.crke if crka.upper() in self.geslo.upper()]
 
     def stevilo_napak(self):
         return len(self.napacne_crke())
@@ -29,9 +32,9 @@ class Igra:
 
     def pravilni_del_gesla(self):
         pravilno = ''
-        for c in self.geslo.upper():
-            if c in self.crke:
-                pravilno += c
+        for crka in self.geslo.upper():
+            if crka in self.crke:
+                pravilno += crka + ' '
             else:
                 pravilno += '_'
         return pravilno
@@ -45,21 +48,21 @@ class Igra:
         crka = crka.upper()
         if crka in self.crke:
             return PONOVLJENA_CRKA 
-        elif crka in self.geslo.upper():
-            self.crke.append(crka)
-            if self.zmaga():
-                return ZMAGA
-            else:
-                return PRAVILNA_CRKA
         else:
             self.crke.append(crka)
-            if self.poraz():
-                return PORAZ
+            if crka in self.geslo:
+                if self.zmaga():
+                    return ZMAGA
+                else:
+                    return PRAVILNA_CRKA
             else:
-                return NAPACNA_CRKA
+                if self.poraz():
+                    return PORAZ
+                else:
+                    return NAPACNA_CRKA
 
-with open('besede.txt', encoding="utf-8") as f:
-    bazen_besed = f.read().split()     
+with open('besede.txt', encoding='utf-8') as f:
+    bazen_besed = [vrstica.strip().upper() for vrstica in f]     
 
 import random
 
