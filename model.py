@@ -36,7 +36,7 @@ class Igra:
             if crka in self.crke:
                 pravilno += crka + ' '
             else:
-                pravilno += '_'
+                pravilno += '_ '
         return pravilno
 
         # return ''.join([c if c in self.crke else '_' for c in self.geslo.upper()])

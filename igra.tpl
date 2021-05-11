@@ -11,7 +11,7 @@
 
   <p>Nepravilni ugibi: <b>{{igra.nepravilni_ugibi()}}</b></p>
 
-  <img src="img/{{igra.stevilo_napak()}}.jpg" alt="obesanje">
+  <img src="/img/{{igra.stevilo_napak()}}.jpg" alt="obesanje">
 
   <form action="/igra/" method="post">
     <button type="submit">Nova igra</button>
