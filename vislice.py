@@ -26,7 +26,7 @@ def ugibaj(id_igre):
 
 @bottle.get('/img/<picture>')
 def serve_pictures(picture):
-    return bottle.static_file(picture, root='img')
+    return bottle.static_file(picture, root='img') #root, ker v podmapi
 
 bottle.run(reloader=True, debug=True)
 
